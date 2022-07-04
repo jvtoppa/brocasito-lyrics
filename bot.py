@@ -11,9 +11,12 @@ artistas_list = []
 genius = lg.Genius('EeTU39_jxfWIWEKpgCtIZQiVcQg4cC_-NSzi8xPAlryta-oj7UfCQLEzyd4oewDx', skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
 
 @bot.command()
-async def procurar(ctx, *, musica):
+async def procurar(ctx,*,musica):
+    m=musica.split(",")
+    musica=m[0]
+    artista=m[1]
 
-    songs = genius.search_song(musica, 'brocasito')
+    songs = genius.search_song(musica, artista)
     
     s = songs.lyrics
 
